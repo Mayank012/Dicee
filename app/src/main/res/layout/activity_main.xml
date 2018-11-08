@@ -1,64 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/newbackground"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/image_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="false"
-            android:layout_marginStart="78dp"
-            android:layout_marginTop="11dp"
-            app:srcCompat="@drawable/dicelogo" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/description_imageLogo"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/image_leftDice"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_rightLogo"
+        app:layout_constraintStart_toStartOf="@+id/guideline_leftLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/dicelogo" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/image_leftDice"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+
+        android:layout_marginStart="32dp"
+
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/description_leftDice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/image_rightDice"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintRight_toLeftOf="@+id/image_rightDice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/dice2" />
+
+    <ImageView
+        android:id="@+id/image_rightDice"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/description_rightDice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_leftDice"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/dice1" />
+
+
+    <Button
+        android:id="@+id/rollButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="36dp"
+        android:contentDescription="@string/description_button"
+        android:text="@string/button_text"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_leftDice"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/dice2"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_rightLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
 
-        <ImageView
-            android:id="@+id/image_rightDice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/dice1" />
-    </LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_leftLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/rollButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="?android:attr/colorAccent"
-            android:text="@string/button_text"
-            android:textColor="@android:color/white" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
